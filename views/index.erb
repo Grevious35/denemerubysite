@@ -1,0 +1,51 @@
+                                                <!DOCTYPE html>
+                                                <html lang="tr">
+                                                <head>
+                                                    <meta charset="UTF-8">
+                                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                    <title>SS Development - Ruby Kod Önizleme ve Analiz</title>
+                                                    <link rel="stylesheet" href="/styles.css">
+                                                </head>
+                                                <body>
+
+                                                    <header>
+                                                        <div class="logo">
+                                                            <a href="https://www.kod-onizleme.com.tr">www.kod-onizleme.com.tr</a>
+                                                            <span class="kucuk-logo">SS Development</span>
+                                                        </div>
+                                                        <nav class="navbar">
+                                                            <ul>
+                                                                <li><a href="/htmlonizleme">HTML/CSS/JS</a></li>
+                                                                <li><a href="/">Ruby</a></li>
+                                                                <li><a href="cpponizleme">C++</a></li>
+                                                            </ul>
+                                                        </nav>
+                                                    </header>
+
+                                                    <main class="container">
+                                                        <h1>Ruby Kod Önizleme ve Analizcisi</h1>
+                                                        <div class="editor">
+                                                            <textarea id="codeEditor" placeholder="Ruby kodunuzu buraya yazın..."></textarea>
+                                                        </div>
+                                                        <button id="runCode">Çalıştır ve Analiz Et</button>
+                                                        <div id="outputContainer">
+                                                            <h2>Çıktı:</h2>
+                                                            <pre id="output"></pre>
+                                                        </div>
+                                                    </main>
+
+                                                    <footer>
+                                                        <p>&copy; <%= Time.now.year %><b> www.kod-onizleme.com.tr SS Development Tüm hakları saklıdır.</b></p>
+                                                        <ul>
+                                                            <li><a href="/kullanimkosullarivegizlilikpolitikasi"><font color="white">Kullanım Koşulları ve Gizlilik Politikası</font></a></li>
+                                                        </ul>
+                                                    </footer>
+
+                                                
+                                                    <div id="toggleTheme" class="theme-toggle">
+                                                        🌞
+                                                    </div>
+
+                                                    <script src="/app.js"></script>
+                                                </body>
+                                                </html>

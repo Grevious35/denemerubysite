@@ -1,0 +1,109 @@
+                                                <!DOCTYPE html>
+                                                <html lang="tr">
+                                                <head>
+                                                    <meta charset="UTF-8">
+                                                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                                                    <title>HTML/CSS/JS Önizleme - SS Development</title>
+                                                    <link rel="stylesheet" href="/styles.css">
+                                                </head>
+                                                <body>
+                                                                <header>
+                                                                    <div class="logo">
+                                                                        <a href="https://www.kod-onizleme.com.tr">www.kod-onizleme.com.tr</a>
+                                                                         <span class="kucuk-logo">SS Development</span> 
+                                                                    </div>
+                                                        <nav class="navbar">
+                                                            <ul>
+                                                                    <li><a href="/htmlonizleme">HTML/CSS/JS</a></li>
+                                                                    <li><a href="/">Ruby</a></li>
+                                                                    <li><a href="/cpponizleme">C++</a></li>
+                                                            </ul>
+                                                        </nav>
+                                                    </header>
+                                                    <main class="container">
+                                                        <h1>HTML/CSS/JS Önizleme</h1>
+                                                        <div class="editor">
+                                                            <div class="editor-section">
+                                                                <h2>HTML</h2>
+                                                                <textarea id="htmlCode" placeholder="HTML kodunuzu buraya yazın..."></textarea>
+                                                            </div>
+                                                            <div class="editor-section">
+                                                                <h2>CSS</h2>
+                                                                <textarea id="cssCode" placeholder="CSS kodunuzu buraya yazın..."></textarea>
+                                                            </div>
+                                                            <div class="editor-section">
+                                                                <h2>JS</h2>
+                                                                <textarea id="jsCode" placeholder="JavaScript kodunuzu buraya yazın..."></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <button id="runCode">Çalıştır ve Önizle</button>
+                                                        <div id="outputContainer">
+                                                            <h2>Önizleme:</h2>
+                                                            <iframe id="output" style="width: 100%; height: 400px; border: 1px solid #bdc3c7;"></iframe>
+                                                            <button id="openInNewTab" class="open-preview-btn" style="margin-top: 10px;">Yeni Sekmede Aç</button>
+                                                        </div>
+                                                    </main>
+                                                                    <footer>
+                                                                        <p>&copy; <%= Time.now.year %><b> www.kod-onizleme.com.tr SS Development Tüm hakları saklıdır.</b></p>
+                                                                        <ul>
+
+                                                                            <li><a href="/kullanimkosullarivegizlilikpolitikasi"><font color="white">Kullanım Koşulları ve Gizlilik Politikası</font></a></li>
+
+                                                                        </ul>
+                                                                    </footer>
+
+                                                                <!-- Güneş ve Ay Emojisi -->
+                                                                    <div id="toggleTheme" class="theme-toggle">
+                                                                        🌞
+                                                                    </div>
+
+                                                    <script>
+                                                        document.getElementById("runCode").addEventListener("click", function () {
+                                                            const htmlCode = document.getElementById("htmlCode").value;
+                                                            const cssCode = document.getElementById("cssCode").value;
+                                                            const jsCode = document.getElementById("jsCode").value;
+
+                                                            const iframe = document.getElementById("output").contentWindow.document;
+
+                                                            // Tüm kodları birleştir
+                                                            const fullCode = `
+                                                                <!DOCTYPE html>
+                                                                <html lang="en">
+                                                                <head>
+                                                                    <style>${cssCode}</style>
+                                                                </head>
+                                                                <body>
+                                                                    ${htmlCode}
+                                                                    <script>${jsCode}<\/script>
+                                                                </body>
+                                                                </html>
+                                                            `;
+
+                                                            // Kodları iframe içine yaz
+                                                            iframe.open();
+                                                            iframe.write(fullCode);
+                                                            iframe.close();
+
+                                                            // Yeni sekmede açma butonunun etkinleştirilmesi
+                                                            document.getElementById("openInNewTab").addEventListener("click", function () {
+                                                                const previewWindow = window.open();
+                                                                previewWindow.document.write(fullCode);
+                                                                previewWindow.document.close();
+                                                            });
+                                                        });
+
+                                                                        document.getElementById('toggleTheme').addEventListener('click', function() {
+                                                                            // Arka plan rengini değiştir
+                                                                            if (document.body.classList.contains('white-theme')) {
+                                                                                document.body.classList.remove('white-theme');
+                                                                                document.body.classList.add('night-theme');
+                                                                                document.getElementById('toggleTheme').textContent = '🌙'; // Ay simgesi
+                                                                            } else {
+                                                                                document.body.classList.remove('night-theme');
+                                                                                document.body.classList.add('white-theme');
+                                                                                document.getElementById('toggleTheme').textContent = '🌞'; // Güneş simgesi
+                                                                            }
+                                                                        });
+                                                    </script>
+                                                </body>
+                                                </html>
